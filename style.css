@@ -1,5 +1,5 @@
 /* Add Font  */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -62,4 +62,25 @@ body {
 /* Resize Show case  */
 .showcase {
   flex: 2;
+}
+h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  padding: 0px 20px;
+}
+
+h3 > span {
+  font-weight: 300;
+}
+.persons {
+  padding: 0 120px;
+  margin: 30px 0;
+}
+.person {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background: #ffffff57;
+  padding: 20px;
 }
