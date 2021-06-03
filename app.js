@@ -74,9 +74,43 @@ function sortRichest() {
   });
   populatetoUI();
 }
+// Function show only Millionaires
+function showMillionaire() {
+  users = users.filter((user) => {
+    return user.money >= 1000000;
+  });
+  console.log(users);
+  populatetoUI();
+}
+// Function entire Wealth
+function entireWealth() {
+  const total = users.reduce((acc, num) => {
+    return (acc += num.money);
+  }, 0);
+
+  const divP = document.createElement("div");
+  divP.classList.add("persons");
+  // create div content
+  const divC = document.createElement("div");
+  divC.className = "person total";
+  // add users to div
+  divC.innerHTML = `
+    <span><strong>Total Wealth</strong></span>
+         <span>${formatMoney(total)}</span>
+    `;
+  divP.appendChild(divC);
+  showCase.appendChild(divP);
+}
 getUser();
 getUser();
 // Event Listeners
+// Add user
 addUserBtn.addEventListener("click", getUser);
+// double money
 doubleMoneyBtn.addEventListener("click", doubleMoney);
+// sort richest
 sortRichestBtn.addEventListener("click", sortRichest);
+// show millionaires
+showMilli.addEventListener("click", showMillionaire);
+// Calculate entire wealth
+totalWealth.addEventListener("click", entireWealth);
