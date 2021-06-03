@@ -8,7 +8,7 @@
 /* Add background Image and center container */
 body {
   background: url(Image/background.jpg);
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
   font-family: "Noto Sans KR", sans-serif;
   display: flex;
@@ -27,6 +27,8 @@ body {
   color: #fff;
   border-radius: 6px;
   padding: 30px 30px 80px;
+  /* position: fixed; */
+  top: 0;
 }
 .aside .btns {
   display: flex;

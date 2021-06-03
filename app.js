@@ -1,7 +1,7 @@
 // Get Variables
-const addUser = document.getElementById("add-user");
-const doubleMoney = document.getElementById("double-money");
-const sortRichest = document.getElementById("sort-richest");
+const addUserBtn = document.getElementById("add-user");
+const doubleMoneyBtn = document.getElementById("double-money");
+const sortRichestBtn = document.getElementById("sort-richest");
 const showMilli = document.getElementById("show-milli");
 const totalWealth = document.getElementById("entire-wealth");
 const showCase = document.getElementById("showcase");
@@ -47,7 +47,7 @@ function populatetoUI(providedUser = users) {
     // add users to div
     divC.innerHTML = `
     <span><strong>${user.name}</strong></span>
-         <span>${user.money}</span>
+         <span>${formatMoney(user.money)}</span>
     `;
     // appended to divP
     divP.appendChild(divC);
@@ -55,6 +55,28 @@ function populatetoUI(providedUser = users) {
     showCase.appendChild(divP);
   });
 }
-// getUser();
+// Format Money
+function formatMoney(num) {
+  return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+}
+//double money
+function doubleMoney() {
+  users = users.map((user) => {
+    return { ...user, money: user.money * 2 };
+  });
+
+  populatetoUI();
+}
+// Functions Sort Richest
+function sortRichest() {
+  users.sort((a, b) => {
+    return b.money - a.money;
+  });
+  populatetoUI();
+}
+getUser();
+getUser();
 // Event Listeners
-addUser.addEventListener("click", getUser);
+addUserBtn.addEventListener("click", getUser);
+doubleMoneyBtn.addEventListener("click", doubleMoney);
+sortRichestBtn.addEventListener("click", sortRichest);
